@@ -1,0 +1,28 @@
+# exam_1_6 Вводится строка, содержащая буквы,
+# цифры, пробелы и прочие символы.
+# Посчитайте:
+# - Сколько пар букв (стоят рядом) верхнего регистра
+# - Сколько пар букв (стоят
+# рядом) нижнего регистра
+# - Сколько согласных букв
+# - Сколько гласных букв
+# - Сколько всего букв
+
+text = input()
+vowels = "eyuoia"
+pair_up, pair_down, cons, vows = 0, 0, 0, 0
+for i in range(1, len(text)):
+    if text[i-1].islower() and text[i].islower():
+        pair_down += 1
+    elif text[i-1].isupper() and text[i].isupper():
+        pair_up += 1
+    if text[i - 1].isalpha():
+        if text[i-1].lower() in vowels:
+            vows += 1
+        else:
+            cons += 1
+print(f'''Пар верхнего регистра: {pair_up}
+Пар нижнего регистра: {pair_down}
+гласных букв {vows}
+согласных букв {cons}
+всего букв {vows + cons}''')
